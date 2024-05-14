@@ -12,6 +12,8 @@ import {capsule} from '../clients/capsule';
 import {Button} from './Button';
 import Toast from 'react-native-toast-message';
 import {toastConfig} from '../config/toastConfig';
+// Uncomment for Web Portal Method
+// import InAppBrowser from 'react-native-inappbrowser-reborn';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -40,7 +42,14 @@ export const LoginModal = ({isOpen, onClose}: LoginModalProps) => {
       console.log(userExists);
 
       if (userExists) {
+        // Native Passkey Method
         await capsule.login();
+
+        // Web Portal Method
+        // const webAuthLoginUrl = await capsule.initiateUserLogin(email, true);
+        // InAppBrowser.open(webAuthLoginUrl);
+        // const {needsWallet} = await capsule.waitForLoginAndSetup();
+        // InAppBrowser.close();
 
         Toast.show({
           type: 'success',
@@ -68,10 +77,21 @@ export const LoginModal = ({isOpen, onClose}: LoginModalProps) => {
       setIsLoading(true);
 
       // Verify the users email code and initiate account creation
-      const biometricsId = await capsule.verifyEmail(verificationCode);
+
+      // Native Passkey Method
+      const biometricsId = await capsule.verifyEmailBiometricsId(
+        verificationCode,
+      );
       const userHandle = new Uint8Array(16);
       crypto.getRandomValues(userHandle);
       await capsule.registerPasskey(email, biometricsId, userHandle);
+
+
+      // Web Portal Method
+      // const webAuthCreateUrl = await capsule.verifyEmail(verificationCode);
+      // InAppBrowser.open(webAuthCreateUrl);
+      // await capsule.waitForAccountCreation();
+      // InAppBrowser.close();
 
       Toast.show({
         type: 'success',

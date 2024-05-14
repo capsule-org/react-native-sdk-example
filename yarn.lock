@@ -2680,10 +2680,10 @@
   resolved "https://registry.npmjs.org/@usecapsule/react-native-passkey/-/react-native-passkey-2.1.3.tgz"
   integrity sha512-bl1Ba8xCUhwOS8D7gpFE9pmBQ/Wvmes1R71e5PaA75bqyhvB3ScWJ7v13Q+pK7yQaw8Jc5GnQ1XrAI2SSBwb0g==
 
-"@usecapsule/react-native-wallet@1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@usecapsule/react-native-wallet/-/react-native-wallet-1.0.5.tgz#fbc6662df2db70453d3d845e32770f5121ec8f2c"
-  integrity sha512-EogIUfKTQ5TP/ZE2SVKtpw1un1Bw0FiqLyDm50aeoLehpeVDxoRFiaPFOXBH/vRDfLopPQx/3cSKPIZpbiX1HQ==
+"@usecapsule/react-native-wallet@1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@usecapsule/react-native-wallet/-/react-native-wallet-1.1.0.tgz#9b5aa32a756668f1e92de09e33374a6b92f496af"
+  integrity sha512-hNJDvP2hD2iVSOgMxFgzZ2XD4zlpsf8rGem83RUAY83vEzxZPXnKhaOU3O6pk0PLGSddQkh9ODLLsS5Su8RSEg==
   dependencies:
     "@celo/base" "1.2.0"
     "@celo/client" "0.0.355"
